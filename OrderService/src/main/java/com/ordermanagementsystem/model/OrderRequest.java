@@ -3,14 +3,28 @@ package com.ordermanagementsystem.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class OrderRequest {
 	
+	@NotEmpty(message = "customer name is required")
+	@Size(max = 20, min = 3, message = "customer name should contains atleast 3 characters")
 	private String customerName;
+	
+	@Past
 	@JsonFormat(pattern = "dd-MM-yyyy")
 	private Date orderDate;
+	
+	@NotEmpty(message = "address is required")
 	private String address;
+	
+	@NotEmpty(message = "OrderItem is required")
     private List<OrderItem> orderItem;
     
     public OrderRequest() {
