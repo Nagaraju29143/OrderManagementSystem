@@ -25,7 +25,7 @@ public class OrderItemController {
 	@PostMapping("/orderitem")
 	public ResponseEntity<String> saveOrderItem(@RequestBody List<OrderItemRequest> orderItemReq) {
 		
-		System.out.println("in OrderItemController:saveOrderItem"+orderItemReq);
+		System.out.println("in OrderItemController:saveOrderItem: "+orderItemReq);
 		
 		orderItemService.saveOrderItem(orderItemReq);
 		
