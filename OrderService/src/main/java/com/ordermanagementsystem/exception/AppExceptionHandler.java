@@ -38,7 +38,7 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler   {
 		 
 		 List<String> errorList = ex.getBindingResult().getFieldErrors().stream().map(fieldError -> fieldError.getDefaultMessage()) .collect(Collectors.toList());
 	        
-		 ErrorDetails errorDetails = new ErrorDetails(HttpStatus.BAD_REQUEST, "Order validation failed", errorList);
+		 ErrorDetails errorDetails = new ErrorDetails(errorList,"Order validation failed",HttpStatus.BAD_REQUEST );
 		 
 	     return handleExceptionInternal(ex, errorDetails, headers, errorDetails.getStatus(), request);
 	 }

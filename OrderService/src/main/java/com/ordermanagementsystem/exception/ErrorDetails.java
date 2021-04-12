@@ -5,23 +5,29 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 
 public class ErrorDetails {
-    
-    private HttpStatus status;
-	private  String msg;
 	private List<String> errors;
+	private  String msg;
+    private HttpStatus status;
+	
+	
 	
 	public ErrorDetails(String msg) {
 		this.msg = msg;
 	}
 	
-	public ErrorDetails(HttpStatus status, String message, List<String> errors) {
-        super();
-        this.status = status;
-        this.msg = message;
-        this.errors = errors;
-    }
 	
 	
+	
+	public ErrorDetails(List<String> errors, String msg, HttpStatus status) {
+		super();
+		this.errors = errors;
+		this.msg = msg;
+		this.status = status;
+	}
+
+
+
+
 	public String getMsg() {
 		return msg;
 	}
